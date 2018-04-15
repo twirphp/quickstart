@@ -1,0 +1,25 @@
+{
+    "name": "twirp/quickstart",
+    "description": "Installs all necessary dependencies to use TwirPHP",
+    "type": "metapackage",
+    "license": "MIT",
+    "keywords": ["twirp", "rpc", "framework", "idl", "protobuf", "quickstart"],
+    "homepage": "http://twirphp.readthedocs.io",
+    "authors": [
+        {
+            "name": "Márk Sági-Kazár",
+            "email": "mark.sagikazar@gmail.com"
+        }
+    ],
+    "require": {
+        "google/protobuf": "^3.5",
+        "guzzlehttp/psr7": "^1.4",
+        "php-http/guzzle6-adapter": "^1.1",
+        "php-http/message": "^1.6"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
+}
