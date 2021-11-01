@@ -12,10 +12,9 @@
         }
     ],
     "require": {
-        "google/protobuf": "^3.5",
-        "guzzlehttp/psr7": "^1.4",
-        "http-interop/http-factory-guzzle": "^1.0",
-        "php-http/guzzle6-adapter": "^2.0"
+        "google/protobuf": "^3.19",
+        "guzzlehttp/guzzle": "^7.4",
+        "guzzlehttp/psr7": "^2.0"
     },
     "config": {
         "sort-packages": true

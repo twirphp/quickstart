@@ -11,9 +11,9 @@ $ composer require twirp/quickstart
 
 ## Security
 
-If you discover any security related issues, please contact us at [mark.sagikazar+twirphp@gmail.com](mailto:mark.sagikazar+twirphp@gmail.com).
+If you discover any security related issues, please contact us at [twirphp@sagikazarmark.dev](mailto:twirphp@sagikazarmark.dev).
 
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE) for more information.
+The project is licensed under the [MIT License](LICENSE).
