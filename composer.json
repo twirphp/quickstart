@@ -4,7 +4,7 @@
     "type": "metapackage",
     "license": "MIT",
     "keywords": ["twirp", "rpc", "framework", "idl", "protobuf", "quickstart"],
-    "homepage": "http://twirphp.readthedocs.io",
+    "homepage": "https://twirphp.github.io",
     "authors": [
         {
             "name": "Márk Sági-Kazár",
@@ -12,9 +12,9 @@
         }
     ],
     "require": {
-        "google/protobuf": "^3.19",
-        "guzzlehttp/guzzle": "^7.4",
-        "guzzlehttp/psr7": "^2.0"
+        "google/protobuf": "^3.23",
+        "guzzlehttp/guzzle": "^7.7",
+        "guzzlehttp/psr7": "^2.5"
     },
     "config": {
         "sort-packages": true
