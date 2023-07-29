@@ -2,9 +2,11 @@ name: CI
 
 on:
   push:
-    branches:
-      - master
+    branches: [master]
   pull_request:
+
+permissions:
+  contents: read
 
 jobs:
   test:
@@ -13,17 +15,27 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: ['7.3', '7.4', '8.0', '8.1']
+        php: ['7.3', '7.4', '8.0', '8.1', '8.2']
 
     steps:
-      - name: Set up PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php }}
-          tools: composer:v2
+      - name: Checkout repository
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
 
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Set up Nix
+        uses: cachix/install-nix-action@6ed004b9ccb68dbc28e7c85bee15fa93dbd214ac # v22
+        with:
+          extra_nix_config: |
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up magic Nix cache
+        uses: DeterminateSystems/magic-nix-cache-action@8a218f9e264e9c3803c9a1ee1c30d8e4ab55be63 # v2
+
+      - name: Shell name
+        id: shell
+        run: echo "value=ci_$(echo "${{ matrix.php }}" | sed 's/\./_/')" >> "$GITHUB_OUTPUT"
+
+      - name: Prepare Nix shell
+        run: nix develop --impure .#${{ steps.shell.outputs.value }}
 
       - name: Download PHP dependencies
-        run: composer install --no-interaction --no-progress
+        run: nix develop --impure .#${{ steps.shell.outputs.value }} -c composer install --no-interaction --no-progress
